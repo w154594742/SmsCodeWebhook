@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-l()(8j5^o(snkck)nmzj!t*%po#z3q-j+6plr)9y6lheap!&2j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# 允许的主机，如果你的应用部署在生产环境中，并且需要处理多个域名或 IP 地址，可以将它们都添加到 ALLOWED_HOSTS 列表中
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,6 +133,8 @@ redis_database = '0'
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
+        # 如果使用内置redis，则使用以下配置
+        # 'LOCATION': f'redis://{redis_host}:{redis_port}/{redis_database}',
         'LOCATION': f'redis://:{redis_pass}@{redis_host}:{redis_port}/{redis_database}',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
