@@ -8,6 +8,7 @@ class GetCodeRequest(Schema):
 
 class SendSmsMsgRequest(Schema):
     sms_msg: str
+    phone_number: str
 
 
 class ResponseSchema(Schema):
