@@ -44,7 +44,7 @@ curl -X POST 'http://127.0.0.1:8000/api/getCode'  -d '{"phone_number": "13500000
 #### 终端2
 调用/api/sendSmsMsg，发送验证消息
 ```shell
-curl -X POST 'http://127.0.0.1:8000/api/sendSmsMsg' -d '{"sms_msg": "【京东】请确认本人操作，切勿泄露给他人。您正在新设备上登录，验证码：475431。京东工作人员不会索取此验证码。"}'
+curl -X POST 'http://127.0.0.1:8000/api/sendSmsMsg' -d '{"phone_number": "13500000000", "sms_msg": "【京东】请确认本人操作，切勿泄露给他人。您正在新设备上登录，验证码：475431。京东工作人员不会索取此验证码。"}'
 ```
 
 #### 重回终端1
@@ -87,10 +87,6 @@ python manage.py runserver
 ```
 
 
-## TODO:
-- 根据手机查询验证码(目前调用时只是假传手机号)
-
-
 ## 接口说明
 ### 1. Send SMS Message
 
@@ -103,6 +99,7 @@ python manage.py runserver
 #### Body
 ```json
 {
+    "phone_number": "13500000000",
     "sms_msg": "请确认本人操作，切勿泄露给他人。您正在新设备上登录，验证码：475431。"
 }
 ```
